@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Armut.AspNetCore.CSharp_212
+namespace Armut.AspNetCore.Api
 {
     public class Startup
     {
