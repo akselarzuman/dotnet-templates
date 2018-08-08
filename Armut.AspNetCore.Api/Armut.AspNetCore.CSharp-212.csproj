@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove=".template-config\**" />
+    <Content Remove=".template-config\**" />
+    <EmbeddedResource Remove=".template-config\**" />
+    <None Remove=".template-config\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Armut.Service\Armut.Service.csproj" />
+  </ItemGroup>
+
+</Project>
