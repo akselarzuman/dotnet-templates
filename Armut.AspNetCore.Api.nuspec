@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Armut.AspNetCore.Api</id>
+    <version>1.0.0</version>
+    <description>
+      Creates the Armut AspNetCore Api app.
+    </description>
+    <authors>Armut.com</authors>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+</package>
