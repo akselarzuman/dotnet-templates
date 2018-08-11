@@ -2,14 +2,14 @@
     "$schema": "http://json.schemastore.org/template",
     "author": "Armut.com",
     "classifications": ["AspNetCore-Api"],
-    "identity": "Armut.AspNetCore.Api",
+    "identity": "Armut.Api",
     "name": "Armut AspNetCore Web Api Application",
-    "shortName": "armutcom-aspnetcore-api",
+    "shortName": "armutcom-api",
     "tags": {
         "language": "C#",
         "type": "project"
     },
-    "sourceName": "Armut.AspNetCore.Api",
+    "sourceName": "Armut.Api",
     "preferNameDirectory": true,
     "symbols": {
         "includetests": {
@@ -22,10 +22,12 @@
             "datatype": "bool",
             "defaultValue": "true"
         },
-        "namespace": {
+        "projectname": {
             "type": "parameter",
             "datatype": "text",
-            "fileRename": "Armut"
+            "fileRename": "Armut",
+            "isRequired": true,
+            "replaces": "Armut"
         }
     },
     "sources": [{
