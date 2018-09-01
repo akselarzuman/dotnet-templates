@@ -2,11 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Armut.AspNetCore.Api</id>
-    <version>1.0.0</version>
-    <description>
-      Creates the Armut AspNetCore Api app.
-    </description>
+    <version></version>
     <authors>Armut.com</authors>
+    <description>Creates the Armut AspNetCore Api app.</description>
+    <iconUrl>https://armut.com/favicon.ico</iconUrl>
+    <projectUrl>https://github.com/akselarzuman/armutcom-dotnet-templates</projectUrl>
+    <licenseUrl></licenseUrl>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
