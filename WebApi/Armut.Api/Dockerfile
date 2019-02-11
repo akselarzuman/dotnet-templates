@@ -4,6 +4,8 @@ WORKDIR /app
 FROM armutcom/dotnet-core-sdk:2.1-xenial AS build
 WORKDIR /src
 COPY Armut.Api/Armut.Api.csproj Armut.Api/
+COPY Armut.Service/Armut.Service.csproj Armut.Service/
+COPY Armut.Repository/Armut.Repository.csproj Armut.Repository/
 RUN dotnet restore Armut.Api/Armut.Api.csproj
 COPY . .
 WORKDIR /src/Armut.Api
