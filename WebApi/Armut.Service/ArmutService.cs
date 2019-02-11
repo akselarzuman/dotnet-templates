@@ -1,4 +1,5 @@
-﻿using Armut.Models.Entities;
+﻿using System.Threading.Tasks;
+using Armut.Models.Entities;
 using Armut.Models.Models;
 using Armut.Repository.Contracts;
 using Armut.Service.Contracts;
@@ -15,9 +16,9 @@ namespace Armut.Service
             _armutRepository = armutRepository;
         }
 
-        public ArmutModel Get()
+        public async Task<ArmutModel> GetAsync()
         {
-            ArmutEntity armutEntity = _armutRepository.Get();
+            ArmutEntity armutEntity = await _armutRepository.GetAsync();
             ArmutModel armutModel = Mapper.Map<ArmutModel>(armutEntity);
 
             return armutModel;

@@ -1,4 +1,5 @@
-﻿using Armut.Models.Models;
+﻿using System.Threading.Tasks;
+using Armut.Models.Models;
 using Armut.Models.ViewModels;
 using Armut.Service.Contracts;
 using AutoMapper;
@@ -18,9 +19,9 @@ namespace Armut.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            ArmutModel armutModel = _armutService.Get();
+            ArmutModel armutModel = await _armutService.GetAsync();
             ArmutViewModel armutViewModel = Mapper.Map<ArmutViewModel>(armutModel);
 
             return Ok();
