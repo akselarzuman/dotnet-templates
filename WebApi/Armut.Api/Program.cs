@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Armut.AspNetCore.Api
+namespace Armut.Api
 {
     public class Program
     {

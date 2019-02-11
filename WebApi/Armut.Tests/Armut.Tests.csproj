@@ -13,4 +13,10 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Armut.Service\Armut.Service.csproj" />
+    <ProjectReference Include="..\Armut.Repository\Armut.Repository.csproj" />
+    <ProjectReference Include="..\Armut.Models\Armut.Models.csproj" />
+  </ItemGroup>
+
 </Project>

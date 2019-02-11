@@ -1,9 +1,8 @@
-using System;
 using Xunit;
 
 namespace Armut.Tests
 {
-    public class UnitTest1
+    public class ArmutServiceTests
     {
         [Fact]
         public void Test1()
