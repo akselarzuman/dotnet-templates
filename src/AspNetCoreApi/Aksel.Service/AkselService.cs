@@ -16,6 +16,11 @@ namespace Aksel.Service
             _AkselRepository = AkselRepository;
         }
 
+        public async Task<AkselModel> AddAsync(AkselModel model)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<AkselModel> GetAsync()
         {
             AkselEntity AkselEntity = await _AkselRepository.GetAsync();
