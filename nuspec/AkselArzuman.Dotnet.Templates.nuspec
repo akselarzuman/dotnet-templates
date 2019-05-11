@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AkselArzuman.Dotnet.Templates</id>
+    <version></version>
+    <authors>Aksel Arzuman</authors >
+    <description>Dotnet Templates</description>
+    <iconUrl>https://raw.githubusercontent.com/akselarzuman/dotnet-templates/master/logos/aa.png</iconUrl>
+    <projectUrl>https://github.com/akselarzuman/dotnet-templates</projectUrl>
+    <licenseUrl>https://github.com/akselarzuman/dotnet-templates/blob/master/LICENSE</licenseUrl>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+</package>

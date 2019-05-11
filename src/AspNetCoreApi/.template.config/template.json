@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Aksel Arzuman",
+    "classifications": ["AspNetCore-Api"],
+    "identity": "AkselArzuman.Dotnet.Api",
+    "name": "Web Api Application",
+    "shortName": "aanetcore-api",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "AkselArzuman.Dotnet.Api",
+    "preferNameDirectory": true,
+    "symbols": {
+        "includetests": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "includedocker": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true"
+        },
+        "projectname": {
+            "type": "parameter",
+            "datatype": "text",
+            "fileRename": "Aksel",
+            "isRequired": true,
+            "replaces": "Aksel"
+        }
+    },
+    "sources": [{
+        "modifiers": [{
+                "condition": "(!includetests)",
+                "exclude": ["Aksel.Tests/**/*"]
+            },
+            {
+                "condition": "(!includedocker)",
+                "exclude": ["Dockerfile"]
+            }
+        ]
+    }]
+}
