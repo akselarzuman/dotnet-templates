@@ -12,7 +12,9 @@ namespace Aksel.Api
             Mapper.Initialize((config) =>
             {
                 config.CreateMap<AkselViewModel, AkselModel>();
+                config.CreateMap<AkselModel, AkselViewModel>();
                 config.CreateMap<AkselModel, AkselEntity>();
+                config.CreateMap<AkselEntity, AkselModel>();
             });
         }
     }

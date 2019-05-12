@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Aksel.Models.Entities;
 using Aksel.Models.Models;
 using Aksel.Repository.Contracts;
@@ -18,12 +19,47 @@ namespace Aksel.Service
 
         public async Task<AkselModel> AddAsync(AkselModel model)
         {
-            throw new System.NotImplementedException();
+            AkselEntity entity = Mapper.Map<AkselEntity>(model);
+            AkselEntity AkselEntity = await _AkselRepository.AddAsync(entity);
+            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
+
+            return AkselModel;
         }
 
-        public async Task<AkselModel> GetAsync()
+        public async Task DeleteAsync(long id)
         {
-            AkselEntity AkselEntity = await _AkselRepository.GetAsync();
+            if (id <= 0)
+            {
+                throw new ArgumentException(nameof(id));
+            }
+
+            AkselEntity AkselEntity = await _AkselRepository.GetAsync(id);
+
+            if (AkselEntity == null)
+            {
+                throw new Exception();
+            }
+
+            AkselEntity.IsActive = false;
+
+            await _AkselRepository.UpdateAsync(AkselEntity);
+        }
+
+        public async Task UpdateAsync(AkselModel model)
+        {
+            AkselEntity entity = Mapper.Map<AkselEntity>(model);
+            
+            await _AkselRepository.UpdateAsync(entity);
+        }
+
+        public async Task<AkselModel> GetAsync(long id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException(nameof(id));
+            }
+
+            AkselEntity AkselEntity = await _AkselRepository.GetAsync(id);
             AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
 
             return AkselModel;
