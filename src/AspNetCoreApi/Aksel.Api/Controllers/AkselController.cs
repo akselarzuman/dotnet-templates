@@ -19,10 +19,37 @@ namespace Aksel.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(long id)
         {
-            AkselModel AkselModel = await _AkselService.GetAsync();
+            AkselModel AkselModel = await _AkselService.GetAsync(id);
             AkselViewModel AkselViewModel = Mapper.Map<AkselViewModel>(AkselModel);
+
+            return Ok(AkselViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AkselViewModel AkselViewModel)
+        {
+            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselViewModel);
+            AkselModel model = await _AkselService.AddAsync(AkselModel);
+            AkselViewModel AkselVm = Mapper.Map<AkselViewModel>(model);
+
+            return Created("", AkselVm);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(long id)
+        {
+            await _AkselService.DeleteAsync(id);
+
+            return Ok();
+        }
+
+        [HttpPatch]
+        public async Task<IActionResult> Update(AkselViewModel AkselViewModel)
+        {
+            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselViewModel);
+            await _AkselService.UpdateAsync(AkselModel);
 
             return Ok();
         }
