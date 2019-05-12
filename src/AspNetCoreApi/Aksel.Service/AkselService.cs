@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 using Aksel.Models.Entities;
 using Aksel.Models.Models;
+using Aksel.ModelValidators;
 using Aksel.Repository.Contracts;
 using Aksel.Service.Contracts;
 using AutoMapper;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Aksel.Service
 {
@@ -19,6 +23,8 @@ namespace Aksel.Service
 
         public async Task<AkselModel> AddAsync(AkselModel model)
         {
+            await ValidateAsync(model);
+            
             AkselEntity entity = Mapper.Map<AkselEntity>(model);
             AkselEntity AkselEntity = await _AkselRepository.AddAsync(entity);
             AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
@@ -47,6 +53,8 @@ namespace Aksel.Service
 
         public async Task UpdateAsync(AkselModel model)
         {
+            await ValidateAsync(model);
+            
             AkselEntity entity = Mapper.Map<AkselEntity>(model);
             
             await _AkselRepository.UpdateAsync(entity);
@@ -63,6 +71,19 @@ namespace Aksel.Service
             AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
 
             return AkselModel;
+        }
+
+        private async Task ValidateAsync(AkselModel model)
+        {
+            var validator = new AkselModelValidator();
+            ValidationResult validationResult = await validator.ValidateAsync(model);
+
+            if (!validationResult.IsValid)
+            {
+                string errorMessage = validationResult.Errors?.First()?.ErrorMessage;
+                
+                throw new Exception(errorMessage);
+            }
         }
     }
 }

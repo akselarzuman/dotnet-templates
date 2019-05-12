@@ -5,6 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aksel.ModelValidators\Aksel.ModelValidators.csproj" />
     <ProjectReference Include="..\Aksel.Repository\Aksel.Repository.csproj" />
   </ItemGroup>
 
