@@ -1,15 +1,18 @@
 {
     "$schema": "http://json.schemastore.org/template",
     "author": "Aksel Arzuman",
-    "classifications": ["AspNetCore-Api"],
+    "classifications": ["Web", "Api"],
     "identity": "AkselArzuman.Dotnet.Api",
     "name": "Web Api Application",
-    "shortName": "aanetcore-api",
+    "shortName": "netcore-api",
     "tags": {
         "language": "C#",
         "type": "project"
     },
-    "sourceName": "AkselArzuman.Dotnet.Api",
+    "sourceName": "Aksel.Api",
+    "primaryOutputs": [
+        { "path": "Aksel.sln" }
+    ],
     "preferNameDirectory": true,
     "symbols": {
         "includetests": {
