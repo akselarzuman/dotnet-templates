@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Aksel.Service.Contracts;
 
 namespace Aksel.ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DependencyFactory.Instance.RegisterDependencies();
+            IAkselService AkselService = DependencyFactory.Instance.Resolve<IAkselService>();
+            
+            await Console.Out.WriteLineAsync("Hello World!");
         }
     }
 }
