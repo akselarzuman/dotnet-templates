@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>AkselArzuman.Dotnet.Templates</id>
-    <version>0.0.1-alfa</version>
+    <version>1.0.0</version>
     <authors>Aksel Arzuman</authors >
     <description>Dotnet Templates</description>
     <iconUrl>https://raw.githubusercontent.com/akselarzuman/dotnet-templates/master/logos/aa.png</iconUrl>
@@ -12,4 +12,7 @@
       <packageType name="Template" />
     </packageTypes>
   </metadata>
+  <files>
+    <file src="../src/**" exclude="**/bin/**;**/obj/**;**.DS_Store**;**.rels**"></file>
+  </files>
 </package>
