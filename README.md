@@ -1,6 +1,18 @@
 # AkselArzuman.Dotnet.Templates
 
-dotnet new cli templates to make your life easier
+dotnet new cli templates to make your life easier.
+
+## Why to use these templates?
+
+By creating you project with these templates, you get :
+
+* Layers (Service, Repository and Models)
+* Entity Framework Core Support (only need to pass your connection string in appsettings file)
+* Dependency Injection (Microsoft)
+* AutoMapper Configuration
+* Fluent Validation
+* Docker Support
+* Test Project
 
 ## Installation
 
