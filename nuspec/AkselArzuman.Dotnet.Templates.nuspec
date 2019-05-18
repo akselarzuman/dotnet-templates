@@ -13,6 +13,6 @@
     </packageTypes>
   </metadata>
   <files>
-    <file src="../src/**" exclude="**/bin/**;**/obj/**;**.DS_Store**;**idea**;"></file>
+    <file src="./" exclude="**/bin/**;**/obj/**;**.DS_Store**;**idea**;"></file>
   </files>
 </package>

@@ -3,26 +3,28 @@
 using System;
 using System.Diagnostics;
 
+var sourceDir = "../src";
+var solutions = GetFiles(sourceDir + "/**/*.sln");
+var files = GetFiles(sourceDir + "/**/*.*");
+
 var target = Argument("target", "Default");
-var projects = GetFiles("../src/**/*.csproj");
+var publishDir = "../publishdir";
 string version = "1.0.0";
 
-
 Task("Default")
-    .IsDependentOn("Build");
+    .IsDependentOn("Copy-Files");
 
-Task("Restore-Projects")
+Task("Restore")
     .Does(() =>
     {
-        Information($"Restoring projects");
-        foreach(var project in projects)
+        foreach(var sln in solutions)
         {
-            DotNetCoreRestore(project.ToString());
+            DotNetCoreRestore(sln.ToString());
         }
     });
 
 Task("Build")
-    .IsDependentOn("Restore-Projects")
+    .IsDependentOn("Restore")
     .Does(() =>
 {
     DotNetCoreBuildSettings settings = new DotNetCoreBuildSettings
@@ -31,12 +33,37 @@ Task("Build")
         Configuration = "Release"
     };
 
-    Information($"Building projects");
-    foreach(var project in projects)
+    foreach(var sln in solutions)
     {
-        DotNetCoreBuild(project.ToString(), settings);
+        DotNetCoreBuild(sln.ToString(), settings);
     }
 });
+
+Task("Create-Directory")
+    .IsDependentOn("Build")
+    .Does(() =>
+    {
+        CreateDirectory(publishDir);
+    });
+
+Task("Copy-Templates")
+    .IsDependentOn("Create-Directory")
+    .Does(() =>
+    {
+        CopyFiles(files, publishDir, true);
+    });
+
+Task("Copy-Nuspec")
+    .IsDependentOn("Create-Directory")
+    .Does(() =>
+    {
+        var nuspecFile = GetFiles("../nuspec/AkselArzuman.Dotnet.Templates.nuspec");
+        CopyFiles(nuspecFile, publishDir, true);
+    });
+
+Task("Copy-Files")
+    .IsDependentOn("Copy-Templates")
+    .IsDependentOn("Copy-Nuspec");
 
 Task("Nuget-Pack")
     .Description("Publish to nuget")
@@ -45,10 +72,10 @@ Task("Nuget-Pack")
         var settings = new NuGetPackSettings
         {
             Version = version,
-            OutputDirectory = "./artifacts"
+            OutputDirectory = "../artifacts"
         };
 
-        string nuspecFile = GetFiles("../nuspec/AkselArzuman.Dotnet.Templates.nuspec").FirstOrDefault().FullPath;
+        string nuspecFile = GetFiles(publishDir + "/AkselArzuman.Dotnet.Templates.nuspec").FirstOrDefault().FullPath;
 
         Information(nuspecFile);
 
