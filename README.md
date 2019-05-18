@@ -14,6 +14,14 @@ By creating you project with these templates, you get :
 * Docker Support
 * Test Project
 
+## Continuous integration
+
+| Build server                | Platform      | Build status                                                                                                                                                        | 
+|-----------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Pipelines             | Ubuntu        | [![Build status](https://dev.azure.com/arzumanaksel/dotnet-templates/_apis/build/status/dotnet-templates%20-%20Ubuntu)](https://dev.azure.com/arzumanaksel/dotnet-templates/_build/latest?definitionId=5) | |
+| Azure Pipelines             | Mac Os        | [![Build status](https://dev.azure.com/arzumanaksel/dotnet-templates/_apis/build/status/dotnet-templates%20-%20Mac%20OS)](https://dev.azure.com/arzumanaksel/dotnet-templates/_build/latest?definitionId=6) | |
+| Azure Pipelines             | Windows       | [![Build status](https://dev.azure.com/arzumanaksel/dotnet-templates/_apis/build/status/dotnet-templates%20-%20Windows)](https://dev.azure.com/arzumanaksel/dotnet-templates/_build/latest?definitionId=7) | |
+
 ## Installation
 
 Install with :
