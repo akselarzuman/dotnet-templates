@@ -7,6 +7,7 @@ dotnet new cli templates to make your life easier.
 By creating you project with these templates, you get :
 
 * Layers (Service, Repository and Models)
+* Swagger (for WebApi project)
 * Entity Framework Core Support (only need to pass your connection string in appsettings file)
 * Dependency Injection (Microsoft)
 * AutoMapper Configuration
