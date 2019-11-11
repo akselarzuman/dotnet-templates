@@ -24,9 +24,9 @@ namespace Aksel.Repository
             return entityEntry.Entity;
         }
 
-        public async Task<AkselEntity> GetAsync(long id)
+        public Task<AkselEntity> GetAsync(long id)
         {
-            AkselEntity entity = await _context.Aksel.FirstOrDefaultAsync(m=> m.Id.Equals(id));
+            Task<AkselEntity> entity = _context.Aksel.FirstOrDefaultAsync(m=> m.Id.Equals(id));
             
             return entity;
         }
