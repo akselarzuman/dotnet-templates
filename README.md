@@ -2,6 +2,8 @@
 
 dotnet new cli templates to make your life easier.
 
+[![NuGet](https://img.shields.io/nuget/v/TRext.svg)](https://www.nuget.org/packages/AkselArzuman.Dotnet.Templates)
+
 ## Why to use these templates?
 
 By creating you project with these templates, you get :
@@ -40,6 +42,18 @@ You need to pass project name in order to create the application.
 To see what parameters you can pass :
 
 `dotnet new netcore-api --help`
+
+### dotnet new netcore-auth
+
+Creates an authentication api that gives JWT tokens with Service,Repository and Models layers and Test project. It also includes docker support.
+
+You need to pass project name in order to create the application.
+
+`dotnet new netcore-auth --projectname=HelloWorld`
+
+To see what parameters you can pass :
+
+`dotnet new netcore-auth --help`
 
 ### dotnet new netcore-console
 
