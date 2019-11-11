@@ -2,6 +2,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+    <PackageReference Include="EnsureDotnet" Version="0.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="2.2.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />

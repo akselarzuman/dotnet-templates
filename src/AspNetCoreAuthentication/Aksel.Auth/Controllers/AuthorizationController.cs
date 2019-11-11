@@ -25,7 +25,7 @@ namespace Aksel.Auth.Controllers
 
             if (string.IsNullOrEmpty(token))
             {
-                return BadRequest(new { message = "Email veya şifre hatalı" });
+                return BadRequest();
             }
 
             return Ok(token);

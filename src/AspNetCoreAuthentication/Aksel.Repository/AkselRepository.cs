@@ -15,9 +15,9 @@ namespace Aksel.Repository
             _context = context;
         }
 
-        public async Task<UserEntity> GetAsync(string email, string password)
+        public Task<UserEntity> GetAsync(string email)
         {
-            var user = await _context.UserEntity.FirstOrDefaultAsync(m => m.Email.Equals(email) && m.Password.Equals(password) && m.IsActive);
+            Task<UserEntity> user = _context.UserEntity.FirstOrDefaultAsync(m => m.Email.Equals(email) && m.IsActive);
 
             return user;
         }

@@ -8,6 +8,7 @@ using Aksel.Models.Entities;
 using Aksel.Models.Models.Authorization;
 using Aksel.Repository.Contracts;
 using Aksel.Service.Contracts;
+using EnsureDotnet;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -29,20 +30,19 @@ namespace Aksel.Service
 
         public async Task<string> LoginAsync(string email, string password)
         {
-            if (string.IsNullOrEmpty(email))
-            {
-                throw new ArgumentNullException(nameof(email));
-            }
+            Ensure.ArgumentNotNullOrEmptyString(email, nameof(email));
+            Ensure.ArgumentNotNullOrEmptyString(password, nameof(password));
 
-            if (string.IsNullOrEmpty(password))
-            {
-                throw new ArgumentNullException(nameof(password));
-            }
-
-            string encodedPassword = GetEncodedPassword(password);
-            UserEntity userEntity = await _userRepository.GetAsync(email, encodedPassword);
+            UserEntity userEntity = await _userRepository.GetAsync(email);
 
             if (userEntity == null)
+            {
+                return null;
+            }
+
+            bool isPasswordMatched = BCrypt.Net.BCrypt.Verify(password, userEntity.Password);
+            
+            if (!isPasswordMatched)
             {
                 return null;
             }
@@ -52,20 +52,6 @@ namespace Aksel.Service
             string role = string.Empty;
 
             return CreateToken(userEntity.Id, role);
-        }
-
-        private string GetEncodedPassword(string password)
-        {
-            string salt = ConfigurationManager.AppSettings["Salt"];
-
-            var valueBytes = KeyDerivation.Pbkdf2(
-                password: password,
-                salt: System.Text.Encoding.UTF8.GetBytes(salt),
-                prf: KeyDerivationPrf.HMACSHA1,
-                iterationCount: 10000,
-                numBytesRequested: 256 / 8);
-
-            return Convert.ToBase64String(valueBytes);
         }
 
         private string CreateToken(long userId, string role)

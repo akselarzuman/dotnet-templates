@@ -5,6 +5,6 @@ namespace Aksel.Repository.Contracts
 {
     public interface IUserRepository
     {
-        Task<UserEntity> GetAsync(string email, string password);
+        Task<UserEntity> GetAsync(string email);
     }
 }
