@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aksel.Service\Aksel.Service.csproj" />
-    <ProjectReference Include="..\Aksel.Repository\Aksel.Repository.csproj" />
-    <ProjectReference Include="..\Aksel.Models\Aksel.Models.csproj" />
+    <ProjectReference Include="..\..\src\Aksel.Service\Aksel.Service.csproj" />
   </ItemGroup>
 
 </Project>
