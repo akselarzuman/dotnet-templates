@@ -1,22 +1,23 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["Aksel.Api/Aksel.Api.csproj", "Aksel.Api/"]
-COPY ["Aksel.Service/Aksel.Service.csproj", "Aksel.Service/"]
-COPY ["Aksel.Repository/Aksel.Repository.csproj", "Aksel.Repository/"]
-COPY ["Aksel.Models/Aksel.Models.csproj", "Aksel.Models/"]
-RUN dotnet restore "Aksel.Api/Aksel.Api.csproj"
+COPY ["src/Aksel.Api/Aksel.Api.csproj", "src/Aksel.Api/"]
+COPY ["src/Aksel.Service/Aksel.Service.csproj", "src/Aksel.Service/"]
+COPY ["src/Aksel.ModelValidators/Aksel.ModelValidators.csproj", "src/Aksel.ModelValidators/"]
+COPY ["src/Aksel.Models/Aksel.Models.csproj", "src/Aksel.Models/"]
+COPY ["src/Aksel.Repository/Aksel.Repository.csproj", "src/Aksel.Repository/"]
+RUN dotnet restore "src/Aksel.Api/Aksel.Api.csproj"
 COPY . .
-WORKDIR "/src/Aksel.Api"
-RUN dotnet build "Aksel.Api.csproj" -c Release -o /app
+WORKDIR "/src/src/Aksel.Api"
+RUN dotnet build "Aksel.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Aksel.Api.csproj" -c Release -o /app
+RUN dotnet publish "Aksel.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Aksel.Api.dll"]

@@ -16,12 +16,11 @@ namespace Aksel.Repository
             _context = context;
         }
 
-        public async Task<AkselEntity> AddAsync(AkselEntity entity)
+        public ValueTask<EntityEntry<AkselEntity>> AddAsync(AkselEntity entity)
         {
-            EntityEntry<AkselEntity> entityEntry = await _context.Aksel.AddAsync(entity);
-            await _context.SaveChangesAsync();
-
-            return entityEntry.Entity;
+            ValueTask<EntityEntry<AkselEntity>> entityEntry = _context.Aksel.AddAsync(entity);
+            
+            return entityEntry;
         }
 
         public Task<AkselEntity> GetAsync(long id)
@@ -31,10 +30,14 @@ namespace Aksel.Repository
             return entity;
         }
 
-        public async Task UpdateAsync(AkselEntity entity)
+        public EntityEntry<AkselEntity> Update(AkselEntity entity)
         {
-            _context.Aksel.Update(entity);
-            await _context.SaveChangesAsync();
+            return _context.Aksel.Update(entity);
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

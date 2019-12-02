@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Aksel.Models.Entities;
@@ -8,6 +7,7 @@ using Aksel.ModelValidators;
 using Aksel.Repository.Contracts;
 using Aksel.Service.Contracts;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Aksel.Service
@@ -26,8 +26,10 @@ namespace Aksel.Service
             await ValidateAsync(model);
             
             AkselEntity entity = Mapper.Map<AkselEntity>(model);
-            AkselEntity AkselEntity = await _AkselRepository.AddAsync(entity);
-            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
+            EntityEntry<AkselEntity> AkselEntity = await _AkselRepository.AddAsync(entity);
+            await _AkselRepository.SaveChangesAsync();
+
+            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity.Entity);
 
             return AkselModel;
         }
@@ -48,7 +50,8 @@ namespace Aksel.Service
 
             AkselEntity.IsActive = false;
 
-            await _AkselRepository.UpdateAsync(AkselEntity);
+            _AkselRepository.Update(AkselEntity);
+            await _AkselRepository.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(AkselModel model)
@@ -57,7 +60,8 @@ namespace Aksel.Service
             
             AkselEntity entity = Mapper.Map<AkselEntity>(model);
             
-            await _AkselRepository.UpdateAsync(entity);
+            _AkselRepository.Update(entity);
+            await _AkselRepository.SaveChangesAsync();
         }
 
         public async Task<AkselModel> GetAsync(long id)
