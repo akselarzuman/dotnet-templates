@@ -1,9 +1,11 @@
 ﻿using Aksel.Repository;
+using Aksel.Repository.Context;
 using Aksel.Repository.Contracts;
 using Aksel.Service;
 using Aksel.Service.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +37,8 @@ namespace Aksel.Api
             services
                 .AddTransient<IAkselRepository, AkselRepository>()
                 .AddTransient<IAkselService, AkselService>();
+
+            services.AddDbContext<AkselDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("AkselDbConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +50,7 @@ namespace Aksel.Api
             }
 
             app.UseRouting();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseSwagger();
 
@@ -54,7 +58,6 @@ namespace Aksel.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aksel API V1");
             });
-
         }
     }
 }
