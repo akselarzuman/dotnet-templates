@@ -1,11 +1,8 @@
-﻿using Aksel.Repository;
-using Aksel.Repository.Context;
-using Aksel.Repository.Contracts;
+﻿using Aksel.Repository.Module;
 using Aksel.Service;
 using Aksel.Service.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,10 +32,11 @@ namespace Aksel.Api
             AutoMapperConfiguration.Initialize();
 
             services
-                .AddTransient<IAkselRepository, AkselRepository>()
-                .AddTransient<IAkselService, AkselService>();
+                .RegisterDbContext(Configuration)
+                .RegisterRepositoryDependencies();
 
-            services.AddDbContext<AkselDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("AkselDbConnectionString")));
+            services
+                .AddTransient<IAkselService, AkselService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
 using Aksel.Repository.Context;
 using Aksel.Repository.Contracts;
+using Aksel.Repository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

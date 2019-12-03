@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Aksel.Repository.Contracts

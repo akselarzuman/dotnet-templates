@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Aksel.Models.Entities;
 using Aksel.Models.Models;
 using Aksel.Models.ViewModels;
+using Aksel.Repository.Entities;
 
 namespace Aksel.Api
 {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
 using Aksel.Models.Models;
 using Aksel.ModelValidators;
 using Aksel.Repository.Contracts;
+using Aksel.Repository.Entities;
 using Aksel.Service.Contracts;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
