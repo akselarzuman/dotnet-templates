@@ -16,9 +16,9 @@ namespace Aksel.ConsoleApp
         private static readonly IConfigurationRoot _configuration;
         private static readonly IServiceCollection _services;
         private ServiceProvider _serviceProvider;
-        
+
         public static readonly DependencyFactory Instance = new DependencyFactory();
-        
+
         private DependencyFactory() { }
 
         static DependencyFactory()
