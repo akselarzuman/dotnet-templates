@@ -5,10 +5,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Aksel.Models\Aksel.Models.csproj" />
-    <ProjectReference Include="..\..\Aksel.ModelValidators\Aksel.ModelValidators.csproj" />
     <ProjectReference Include="..\..\Database\Aksel.Repository.Entities\Aksel.Repository.Entities.csproj" />
     <ProjectReference Include="..\..\Database\Aksel.Repository\Aksel.Repository.csproj" />
+    <ProjectReference Include="..\..\Models\Aksel.Models\Aksel.Models.csproj" />
+    <ProjectReference Include="..\..\Models\Aksel.ModelValidators\Aksel.ModelValidators.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
