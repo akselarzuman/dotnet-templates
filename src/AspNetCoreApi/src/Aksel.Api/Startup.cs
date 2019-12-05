@@ -1,6 +1,7 @@
 ﻿using Aksel.Repository.Module;
 using Aksel.Service;
 using Aksel.Service.Contracts;
+using Aksel.Service.Module;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,7 +34,8 @@ namespace Aksel.Api
 
             services
                 .RegisterDbContext(Configuration)
-                .RegisterRepositoryDependencies();
+                .RegisterRepositoryDependencies()
+                .RegisterServiceDependencies();
 
             services
                 .AddTransient<IAkselService, AkselService>();

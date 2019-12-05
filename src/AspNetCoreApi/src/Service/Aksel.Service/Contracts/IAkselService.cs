@@ -3,7 +3,7 @@ using Aksel.Models.Models;
 
 namespace Aksel.Service.Contracts
 {
-    public interface IAkselService
+    public interface IAkselService : IService
     {
         Task<AkselModel> GetAsync(long id);
         
