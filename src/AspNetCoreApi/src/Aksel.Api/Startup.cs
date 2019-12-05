@@ -1,6 +1,7 @@
 ﻿using Aksel.Api.Setups;
 using Aksel.Repository.Module;
 using Aksel.Service.Module;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,9 +24,9 @@ namespace Aksel.Api
         {
             services.AddControllers();
 
-            AutoMapperConfiguration.Initialize();
-
             services.ConfigureServices(Configuration);
+
+            services.AddAutoMapper(typeof(Startup));
 
             services
                 .RegisterDbContext(Configuration)

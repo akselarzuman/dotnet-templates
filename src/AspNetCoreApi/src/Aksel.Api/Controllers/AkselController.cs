@@ -12,17 +12,20 @@ namespace Aksel.Api.Controllers
     public class AkselController : ControllerBase
     {
         private readonly IAkselService _AkselService;
+        private readonly IMapper _mapper;
 
-        public AkselController(IAkselService AkselService)
+        public AkselController(IAkselService AkselService,
+            IMapper mapper)
         {
             _AkselService = AkselService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get(long id)
         {
             AkselModel AkselModel = await _AkselService.GetAsync(id);
-            AkselViewModel AkselViewModel = Mapper.Map<AkselViewModel>(AkselModel);
+            AkselViewModel AkselViewModel = _mapper.Map<AkselViewModel>(AkselModel);
 
             return Ok(AkselViewModel);
         }
@@ -30,9 +33,9 @@ namespace Aksel.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AkselViewModel AkselViewModel)
         {
-            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselViewModel);
+            AkselModel AkselModel = _mapper.Map<AkselModel>(AkselViewModel);
             AkselModel model = await _AkselService.AddAsync(AkselModel);
-            AkselViewModel AkselVm = Mapper.Map<AkselViewModel>(model);
+            AkselViewModel AkselVm = _mapper.Map<AkselViewModel>(model);
 
             return Created("", AkselVm);
         }
@@ -48,7 +51,7 @@ namespace Aksel.Api.Controllers
         [HttpPatch]
         public async Task<IActionResult> Update(AkselViewModel AkselViewModel)
         {
-            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselViewModel);
+            AkselModel AkselModel = _mapper.Map<AkselModel>(AkselViewModel);
             await _AkselService.UpdateAsync(AkselModel);
 
             return Ok();

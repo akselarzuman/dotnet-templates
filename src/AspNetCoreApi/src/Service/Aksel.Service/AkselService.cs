@@ -15,21 +15,24 @@ namespace Aksel.Service
     public class AkselService : IAkselService
     {
         private readonly IAkselRepository _AkselRepository;
+        private readonly IMapper _mapper;
 
-        public AkselService(IAkselRepository AkselRepository)
+        public AkselService(IAkselRepository AkselRepository,
+            IMapper mapper)
         {
             _AkselRepository = AkselRepository;
+            _mapper = mapper;
         }
 
         public async Task<AkselModel> AddAsync(AkselModel model)
         {
             await ValidateAsync(model);
             
-            AkselEntity entity = Mapper.Map<AkselEntity>(model);
+            AkselEntity entity = _mapper.Map<AkselEntity>(model);
             EntityEntry<AkselEntity> AkselEntity = await _AkselRepository.AddAsync(entity);
             await _AkselRepository.SaveChangesAsync();
 
-            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity.Entity);
+            AkselModel AkselModel = _mapper.Map<AkselModel>(AkselEntity.Entity);
 
             return AkselModel;
         }
@@ -58,7 +61,7 @@ namespace Aksel.Service
         {
             await ValidateAsync(model);
             
-            AkselEntity entity = Mapper.Map<AkselEntity>(model);
+            AkselEntity entity = _mapper.Map<AkselEntity>(model);
             
             _AkselRepository.Update(entity);
             await _AkselRepository.SaveChangesAsync();
@@ -72,7 +75,7 @@ namespace Aksel.Service
             }
 
             AkselEntity AkselEntity = await _AkselRepository.GetAsync(id);
-            AkselModel AkselModel = Mapper.Map<AkselModel>(AkselEntity);
+            AkselModel AkselModel = _mapper.Map<AkselModel>(AkselEntity);
 
             return AkselModel;
         }
