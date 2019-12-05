@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -9,7 +8,6 @@ using Aksel.Models.Models.Authorization;
 using Aksel.Repository.Contracts;
 using Aksel.Service.Contracts;
 using EnsureDotnet;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
