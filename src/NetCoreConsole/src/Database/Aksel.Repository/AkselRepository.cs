@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 using Aksel.Repository.Context;
 using Aksel.Repository.Contracts;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +35,11 @@ namespace Aksel.Repository
         {
             _context.Aksel.Update(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 
 namespace Aksel.Repository.Contracts
 {
-    public interface IAkselRepository
+    public interface IAkselRepository : IRepository
     {
         Task<AkselEntity> AddAsync(AkselEntity entity);
         
