@@ -1,4 +1,4 @@
-namespace Aksel.Models.Entities
+namespace Aksel.Repository.Entities
 {
     public class UserEntity
     {

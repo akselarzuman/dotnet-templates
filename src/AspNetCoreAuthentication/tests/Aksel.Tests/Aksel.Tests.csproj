@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Aksel.Service\Aksel.Service.csproj" />
+    <ProjectReference Include="..\..\src\Service\Aksel.Service\Aksel.Service.csproj" />
   </ItemGroup>
 
 </Project>

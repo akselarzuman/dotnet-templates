@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 using Aksel.Repository.Context;
 using Aksel.Repository.Contracts;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +20,11 @@ namespace Aksel.Repository
             Task<UserEntity> user = _context.UserEntity.FirstOrDefaultAsync(m => m.Email.Equals(email) && m.IsActive);
 
             return user;
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

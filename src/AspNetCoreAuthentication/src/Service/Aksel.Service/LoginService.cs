@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 using Aksel.Models.Models.Authorization;
 using Aksel.Repository.Contracts;
 using Aksel.Service.Contracts;

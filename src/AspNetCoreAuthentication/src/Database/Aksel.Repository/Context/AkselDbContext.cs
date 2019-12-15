@@ -1,4 +1,4 @@
-using Aksel.Models.Entities;
+using Aksel.Repository.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aksel.Repository.Context

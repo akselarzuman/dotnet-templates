@@ -26,8 +26,6 @@ namespace Aksel.Api
 
             services.ConfigureServices(Configuration);
 
-            services.AddAutoMapper(typeof(Startup));
-
             services
                 .RegisterRepositoryDependencies()
                 .RegisterServiceDependencies();
