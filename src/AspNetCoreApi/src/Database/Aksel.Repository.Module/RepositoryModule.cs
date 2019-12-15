@@ -28,12 +28,5 @@ namespace Aksel.Repository.Module
 
             return services;
         }
-
-        public static IServiceCollection RegisterDbContext(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<AkselDbContext>(o => o.UseSqlServer(configuration.GetConnectionString("AkselDbConnectionString")));
-
-            return services;
-        }
     }
 }
