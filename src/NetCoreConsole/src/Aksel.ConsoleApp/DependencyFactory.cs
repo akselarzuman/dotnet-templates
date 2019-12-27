@@ -1,11 +1,8 @@
 using System;
 using System.IO;
-using Aksel.Repository;
-using Aksel.Repository.Context;
-using Aksel.Repository.Contracts;
-using Aksel.Service;
-using Aksel.Service.Contracts;
-using Microsoft.EntityFrameworkCore;
+using Aksel.ConsoleApp.Setups;
+using Aksel.Repository.Module;
+using Aksel.Service.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,13 +34,11 @@ namespace Aksel.ConsoleApp
 
         public void RegisterDependencies()
         {
-            AutoMapperConfiguration.Initialize();
+            _services.ConfigureServices(_configuration);
 
             _services
-                .AddTransient<IAkselRepository, AkselRepository>()
-                .AddTransient<IAkselService, AkselService>();
-
-            _services.AddDbContext<AkselDbContext>(o => o.UseSqlServer(_configuration.GetConnectionString("AkselDbConnectionString")));
+                .RegisterRepositoryDependencies()
+                .RegisterServiceDependencies();
 
             _serviceProvider = _services.BuildServiceProvider();
         }

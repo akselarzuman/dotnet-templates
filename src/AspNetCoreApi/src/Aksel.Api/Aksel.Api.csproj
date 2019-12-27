@@ -1,19 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aksel.Service\Aksel.Service.csproj" />
+    <ProjectReference Include="..\Database\Aksel.Repository.Entities\Aksel.Repository.Entities.csproj" />
+    <ProjectReference Include="..\Database\Aksel.Repository.Module\Aksel.Repository.Module.csproj" />
+    <ProjectReference Include="..\Service\Aksel.Service.Modules\Aksel.Service.Module.csproj" />
   </ItemGroup>
 
   <ItemGroup>
