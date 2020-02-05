@@ -2,7 +2,7 @@
 
 dotnet new cli templates to make your life easier.
 
-[![NuGet](https://img.shields.io/nuget/v/TRext.svg)](https://www.nuget.org/packages/AkselArzuman.Dotnet.Templates)
+[![NuGet](https://img.shields.io/nuget/v/AkselArzuman.Dotnet.Templates.svg)](https://www.nuget.org/packages/AkselArzuman.Dotnet.Templates)
 
 ## Why to use these templates?
 
