@@ -1,7 +1,7 @@
 ﻿using Aksel.Api.Setups;
+using Aksel.ModelValidators.Module;
 using Aksel.Repository.Module;
 using Aksel.Service.Module;
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +27,7 @@ namespace Aksel.Api
             services.ConfigureServices(Configuration);
 
             services
+                .RegisterModelValidatorDependencies()
                 .RegisterRepositoryDependencies()
                 .RegisterServiceDependencies();
         }

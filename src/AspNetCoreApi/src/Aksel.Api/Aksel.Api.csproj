@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Database\Aksel.Repository.Entities\Aksel.Repository.Entities.csproj" />
     <ProjectReference Include="..\Database\Aksel.Repository.Module\Aksel.Repository.Module.csproj" />
+    <ProjectReference Include="..\Models\Aksel.ModelValidators.Module\Aksel.ModelValidators.Module.csproj" />
     <ProjectReference Include="..\Service\Aksel.Service.Modules\Aksel.Service.Module.csproj" />
   </ItemGroup>
 
