@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Aksel.AutomapperMappings;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +9,7 @@ namespace Aksel.ConsoleApp.Setups
     {
         public void Configure(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddAutoMapper(typeof(DependencyFactory));
+            serviceCollection.AddAutoMapper(typeof(AkselMapping));
         }
     }
 }
