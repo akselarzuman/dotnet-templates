@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.Models", "src\Models\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.ModelValidators", "src\Models\Aksel.ModelValidators\Aksel.ModelValidators.csproj", "{361621BF-18ED-4EC9-B179-739327E103F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aksel.AutomapperMappings", "src\Models\Aksel.AutomapperMappings\Aksel.AutomapperMappings.csproj", "{A62B8496-4581-4F19-A716-7824C915DAFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.AutomapperMappings", "src\Models\Aksel.AutomapperMappings\Aksel.AutomapperMappings.csproj", "{A62B8496-4581-4F19-A716-7824C915DAFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aksel.ModelValidators.Module", "src\Models\Aksel.ModelValidators.Module\Aksel.ModelValidators.Module.csproj", "{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +165,18 @@ Global
 		{A62B8496-4581-4F19-A716-7824C915DAFD}.Release|x64.Build.0 = Release|Any CPU
 		{A62B8496-4581-4F19-A716-7824C915DAFD}.Release|x86.ActiveCfg = Release|Any CPU
 		{A62B8496-4581-4F19-A716-7824C915DAFD}.Release|x86.Build.0 = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|x64.Build.0 = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Debug|x86.Build.0 = Debug|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|x64.ActiveCfg = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|x64.Build.0 = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +195,7 @@ Global
 		{B030B6CE-7291-4850-BE45-AA0F7407366A} = {AB58D68B-A0CE-4E22-8465-038904A1445A}
 		{361621BF-18ED-4EC9-B179-739327E103F3} = {AB58D68B-A0CE-4E22-8465-038904A1445A}
 		{A62B8496-4581-4F19-A716-7824C915DAFD} = {AB58D68B-A0CE-4E22-8465-038904A1445A}
+		{8C8012B3-FA8F-4D9D-B945-3D01A02EDBE7} = {AB58D68B-A0CE-4E22-8465-038904A1445A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {681C6B29-7866-47F3-B756-1E44A4833A7F}

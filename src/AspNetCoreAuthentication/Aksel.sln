@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.Service", "src\Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.Service.Module", "src\Service\Aksel.Service.Modules\Aksel.Service.Module.csproj", "{5FB478BE-3A95-4756-9D65-CEDC944CCEA4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.ModelValidators.Module", "src\Models\Aksel.ModelValidators.Module\Aksel.ModelValidators.Module.csproj", "{166C7EDF-7E50-4BF3-A10A-443162A13B8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +165,18 @@ Global
 		{5FB478BE-3A95-4756-9D65-CEDC944CCEA4}.Release|x64.Build.0 = Release|Any CPU
 		{5FB478BE-3A95-4756-9D65-CEDC944CCEA4}.Release|x86.ActiveCfg = Release|Any CPU
 		{5FB478BE-3A95-4756-9D65-CEDC944CCEA4}.Release|x86.Build.0 = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|x64.Build.0 = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +195,7 @@ Global
 		{A1AAABBD-93C2-46A5-82A7-F95B20BC5F2C} = {BA3DFF6A-E428-4525-8417-2C125700C3E1}
 		{6D808293-324A-4BCD-872C-C41710A23849} = {0871D798-0A8B-441B-B785-E3CB58417C15}
 		{5FB478BE-3A95-4756-9D65-CEDC944CCEA4} = {0871D798-0A8B-441B-B785-E3CB58417C15}
+		{166C7EDF-7E50-4BF3-A10A-443162A13B8E} = {BA3DFF6A-E428-4525-8417-2C125700C3E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E776FD5-2F7B-4BBC-B3A5-88A7288FDCC7}

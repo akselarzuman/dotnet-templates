@@ -9,7 +9,7 @@ var files = GetFiles(sourceDir + "/**/*.*");
 
 var target = Argument("target", "Default");
 var publishDir = "../publishdir";
-string version = "1.2.0";
+string version = "1.3.0";
 
 Task("Default")
     .IsDependentOn("Copy-Files");

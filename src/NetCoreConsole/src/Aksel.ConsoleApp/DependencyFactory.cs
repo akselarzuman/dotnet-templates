@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Aksel.ConsoleApp.Setups;
+using Aksel.ModelValidators.Module;
 using Aksel.Repository.Module;
 using Aksel.Service.Module;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +38,7 @@ namespace Aksel.ConsoleApp
             _services.ConfigureServices(_configuration);
 
             _services
+                .RegisterModelValidatorDependencies()
                 .RegisterRepositoryDependencies()
                 .RegisterServiceDependencies();
 

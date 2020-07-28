@@ -1,14 +1,9 @@
 ﻿using Aksel.Auth.Setups;
-using Aksel.Repository;
-using Aksel.Repository.Context;
-using Aksel.Repository.Contracts;
+using Aksel.ModelValidators.Module;
 using Aksel.Repository.Module;
-using Aksel.Service;
-using Aksel.Service.Contracts;
 using Aksel.Service.Module;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +27,7 @@ namespace Aksel.Auth
             services.ConfigureServices(Configuration);
 
             services
+                .RegisterModelValidatorDependencies()
                 .RegisterRepositoryDependencies()
                 .RegisterServiceDependencies();
         }
