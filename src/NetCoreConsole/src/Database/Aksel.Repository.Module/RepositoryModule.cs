@@ -24,6 +24,8 @@ namespace Aksel.Repository.Module
                 services.AddTransient(serviceInterfaceType, type);
             }
 
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
             return services;
         }
     }

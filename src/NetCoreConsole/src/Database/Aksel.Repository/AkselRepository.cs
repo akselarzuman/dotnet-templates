@@ -36,10 +36,5 @@ namespace Aksel.Repository
             _context.Aksel.Update(entity);
             await _context.SaveChangesAsync();
         }
-
-        public Task<int> SaveChangesAsync()
-        {
-            return _context.SaveChangesAsync();
-        }
     }
 }
