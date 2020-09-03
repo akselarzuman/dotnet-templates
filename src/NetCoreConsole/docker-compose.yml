@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aksel.consoleapp:
+    image: ${DOCKER_REGISTRY-}akselconsoleapp
+    build:
+      context: .
+      dockerfile: src/Aksel.ConsoleApp/Dockerfile

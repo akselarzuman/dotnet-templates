@@ -6,13 +6,14 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/Aksel.ConsoleApp/Aksel.ConsoleApp.csproj", "src/Aksel.ConsoleApp/"]
+COPY ["src/Models/Aksel.ModelValidators.Module/Aksel.ModelValidators.Module.csproj", "src/Models/Aksel.ModelValidators.Module/"]
+COPY ["src/Models/Aksel.ModelValidators/Aksel.ModelValidators.csproj", "src/Models/Aksel.ModelValidators/"]
+COPY ["src/Models/Aksel.Models/Aksel.Models.csproj", "src/Models/Aksel.Models/"]
 COPY ["src/Database/Aksel.Repository.Entities/Aksel.Repository.Entities.csproj", "src/Database/Aksel.Repository.Entities/"]
 COPY ["src/Database/Aksel.Repository.Module/Aksel.Repository.Module.csproj", "src/Database/Aksel.Repository.Module/"]
 COPY ["src/Database/Aksel.Repository/Aksel.Repository.csproj", "src/Database/Aksel.Repository/"]
 COPY ["src/Service/Aksel.Service.Modules/Aksel.Service.Module.csproj", "src/Service/Aksel.Service.Modules/"]
 COPY ["src/Service/Aksel.Service/Aksel.Service.csproj", "src/Service/Aksel.Service/"]
-COPY ["src/Models/Aksel.ModelValidators/Aksel.ModelValidators.csproj", "src/Models/Aksel.ModelValidators/"]
-COPY ["src/Models/Aksel.Models/Aksel.Models.csproj", "src/Models/Aksel.Models/"]
 COPY ["src/Models/Aksel.AutoMapperMappings/Aksel.AutoMapperMappings.csproj", "src/Models/Aksel.AutoMapperMappings/"]
 RUN dotnet restore "src/Aksel.ConsoleApp/Aksel.ConsoleApp.csproj"
 COPY . .

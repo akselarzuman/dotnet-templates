@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.Service.Module", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aksel.ModelValidators.Module", "src\Models\Aksel.ModelValidators.Module\Aksel.ModelValidators.Module.csproj", "{863A6C8A-4584-4EF0-9212-F52841F8FD3D}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{550E07DB-155D-48F5-A029-9A84C97E7808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +179,18 @@ Global
 		{863A6C8A-4584-4EF0-9212-F52841F8FD3D}.Release|x64.Build.0 = Release|Any CPU
 		{863A6C8A-4584-4EF0-9212-F52841F8FD3D}.Release|x86.ActiveCfg = Release|Any CPU
 		{863A6C8A-4584-4EF0-9212-F52841F8FD3D}.Release|x86.Build.0 = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|x64.Build.0 = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Debug|x86.Build.0 = Debug|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|x64.ActiveCfg = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|x64.Build.0 = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|x86.ActiveCfg = Release|Any CPU
+		{550E07DB-155D-48F5-A029-9A84C97E7808}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
