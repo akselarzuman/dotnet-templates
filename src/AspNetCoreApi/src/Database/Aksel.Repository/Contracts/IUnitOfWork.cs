@@ -2,7 +2,8 @@
 
 namespace Aksel.Repository.Contracts
 {
-    public interface IRepository
+    public interface IUnitOfWork
     {
+        Task<int> SaveChangesAsync();
     }
 }

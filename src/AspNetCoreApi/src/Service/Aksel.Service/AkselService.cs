@@ -16,15 +16,18 @@ namespace Aksel.Service
     public class AkselService : IAkselService
     {
         private readonly IAkselRepository _AkselRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IModelValidator _modelValidator;
         private readonly IMapper _mapper;
 
         public AkselService(IAkselRepository AkselRepository,
+            IUnitOfWork unitOfWork,
             IModelValidator modelValidator,
             IMapper mapper)
         {
             _AkselRepository = AkselRepository;
             _modelValidator = modelValidator;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
@@ -34,7 +37,7 @@ namespace Aksel.Service
             
             AkselEntity entity = _mapper.Map<AkselEntity>(model);
             EntityEntry<AkselEntity> AkselEntity = await _AkselRepository.AddAsync(entity);
-            await _AkselRepository.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             AkselModel AkselModel = _mapper.Map<AkselModel>(AkselEntity.Entity);
 
@@ -58,7 +61,7 @@ namespace Aksel.Service
             AkselEntity.IsActive = false;
 
             _AkselRepository.Update(AkselEntity);
-            await _AkselRepository.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(AkselModel model)
@@ -68,7 +71,7 @@ namespace Aksel.Service
             AkselEntity entity = _mapper.Map<AkselEntity>(model);
             
             _AkselRepository.Update(entity);
-            await _AkselRepository.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<AkselModel> GetAsync(long id)
