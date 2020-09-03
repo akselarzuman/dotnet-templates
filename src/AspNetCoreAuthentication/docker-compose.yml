@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aksel.auth:
+    image: ${DOCKER_REGISTRY-}akselauth
+    build:
+      context: .
+      dockerfile: src/Aksel.Auth/Dockerfile

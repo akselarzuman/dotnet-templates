@@ -21,10 +21,5 @@ namespace Aksel.Repository
 
             return user;
         }
-
-        public Task<int> SaveChangesAsync()
-        {
-            return _context.SaveChangesAsync();
-        }
     }
 }
